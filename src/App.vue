@@ -1,16 +1,21 @@
 <template>
   <div>
     <router-view></router-view>
-    <FooterGuide></FooterGuide>
+    <FooterGuide v-show="$route.meta.isShow" />
   </div>
 </template>
 
 <script>
   import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+
   export default {
+    mounted(){
+      this.$store.dispatch('getAddress')
+    },
     components:{
       FooterGuide
-    }
+    },
+
   }
 </script>
 
